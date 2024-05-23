@@ -1,6 +1,7 @@
 ﻿using System;
 using System.IO;
 using System.Windows.Forms;
+using Irony.Parsing;
 
 namespace Compilador
 {
@@ -39,13 +40,36 @@ namespace Compilador
 
         private void btn_compile_Click(object sender, EventArgs e)
         {
-            txt_lexico.Text = "Compilando....";
-            txt_semantico.Text = "Compilando....";
-        }
+            string input = txt_entry.Text;
 
-        private void lbl_entry_TextChanged(object sender, EventArgs e)
-        {
+            // Crear el analizador léxico y sintáctico
+            var grammar = new SimpleGrammar();
+            var parser = new Parser(grammar);
 
+            // Realizar el análisis
+            var parseTree = parser.Parse(input);
+
+            // Mostrar los tokens léxicos
+            txt_lexico.Clear();
+            foreach (var token in parseTree.Tokens)
+            {
+                txt_lexico.AppendText($"Token: {token.Text}, Tipo: {token.Terminal.Name}\n");
+            }
+
+            // Verificar si hay errores sintácticos
+            if (parseTree.HasErrors())
+            {
+                txt_semantico.Clear();
+                txt_semantico.AppendText("Errores de análisis sintáctico encontrados:\n");
+                foreach (var message in parseTree.ParserMessages)
+                {
+                    txt_semantico.AppendText($"{message}\n");
+                }
+            }
+            else
+            {
+                txt_semantico.Text = "Análisis sintáctico completado exitosamente.";
+            }
         }
 
         private void btn_limpiar_salias_Click(object sender, EventArgs e)

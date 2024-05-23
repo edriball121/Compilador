@@ -85,7 +85,6 @@
             this.txt_entry.Name = "txt_entry";
             this.txt_entry.Size = new System.Drawing.Size(500, 490);
             this.txt_entry.TabIndex = 4;
-            this.txt_entry.TextChanged += new System.EventHandler(this.lbl_entry_TextChanged);
             // 
             // btn_limpiar
             // 
