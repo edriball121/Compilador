@@ -23,7 +23,7 @@ namespace Compilador
                 try
                 {
                     string fileContent = File.ReadAllText(filePath);
-                    lbl_entry.Text = fileContent;
+                    txt_entry.Text = fileContent;
                 }
                 catch (Exception ex)
                 {
@@ -34,12 +34,24 @@ namespace Compilador
 
         private void btn_limpiar_Click(object sender, EventArgs e)
         {
-            lbl_entry.Clear();
+            txt_entry.Clear();
         }
 
         private void btn_compile_Click(object sender, EventArgs e)
         {
-            lbl_entry.Text = "Compilando....";
+            txt_lexico.Text = "Compilando....";
+            txt_semantico.Text = "Compilando....";
+        }
+
+        private void lbl_entry_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btn_limpiar_salias_Click(object sender, EventArgs e)
+        {
+            txt_lexico.Clear();
+            txt_semantico.Clear();
         }
     }
 }
