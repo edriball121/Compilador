@@ -3,9 +3,9 @@
 namespace Compilador
 {
     [Language("Simple", "1.0", "A simple grammar for demo purposes")]
-    public class SimpleGrammar : Grammar
+    public class Gramatic : Grammar
     {
-        public SimpleGrammar()
+        public Gramatic() : base(caseSensitive:true)
         {
             var Identificador = new IdentifierTerminal("Identificador");
             var Numero = new NumberLiteral("Numero");

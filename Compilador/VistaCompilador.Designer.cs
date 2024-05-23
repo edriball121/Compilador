@@ -36,12 +36,13 @@
             this.btn_compile = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.txt_lexico = new System.Windows.Forms.TextBox();
-            this.txt_semantico = new System.Windows.Forms.TextBox();
             this.btn_limpiar_salias = new System.Windows.Forms.Button();
+            this.txt_semantico = new System.Windows.Forms.TextBox();
+            this.tb_lexico = new System.Windows.Forms.DataGridView();
             this.gbEntry.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.tb_lexico)).BeginInit();
             this.SuspendLayout();
             // 
             // lbl_tittle
@@ -89,9 +90,9 @@
             // btn_limpiar
             // 
             this.btn_limpiar.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_limpiar.Location = new System.Drawing.Point(403, 53);
+            this.btn_limpiar.Location = new System.Drawing.Point(146, 53);
             this.btn_limpiar.Name = "btn_limpiar";
-            this.btn_limpiar.Size = new System.Drawing.Size(123, 41);
+            this.btn_limpiar.Size = new System.Drawing.Size(125, 41);
             this.btn_limpiar.TabIndex = 4;
             this.btn_limpiar.Text = "Limpiar";
             this.btn_limpiar.UseVisualStyleBackColor = true;
@@ -100,9 +101,9 @@
             // btn_compile
             // 
             this.btn_compile.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_compile.Location = new System.Drawing.Point(213, 53);
+            this.btn_compile.Location = new System.Drawing.Point(278, 53);
             this.btn_compile.Name = "btn_compile";
-            this.btn_compile.Size = new System.Drawing.Size(112, 41);
+            this.btn_compile.Size = new System.Drawing.Size(126, 41);
             this.btn_compile.TabIndex = 5;
             this.btn_compile.Text = "Procesar";
             this.btn_compile.UseVisualStyleBackColor = true;
@@ -110,61 +111,62 @@
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.txt_lexico);
+            this.groupBox1.Controls.Add(this.tb_lexico);
             this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox1.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.groupBox1.Location = new System.Drawing.Point(557, 100);
+            this.groupBox1.Location = new System.Drawing.Point(532, 100);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(538, 222);
+            this.groupBox1.Size = new System.Drawing.Size(514, 264);
             this.groupBox1.TabIndex = 6;
             this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Lexico";
+            this.groupBox1.Text = "Análisis Léxico";
             // 
             // groupBox2
             // 
             this.groupBox2.Controls.Add(this.txt_semantico);
             this.groupBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox2.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.groupBox2.Location = new System.Drawing.Point(557, 328);
+            this.groupBox2.Location = new System.Drawing.Point(532, 370);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(538, 305);
+            this.groupBox2.Size = new System.Drawing.Size(514, 263);
             this.groupBox2.TabIndex = 7;
             this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "Semantico";
-            // 
-            // txt_lexico
-            // 
-            this.txt_lexico.Location = new System.Drawing.Point(16, 25);
-            this.txt_lexico.Multiline = true;
-            this.txt_lexico.Name = "txt_lexico";
-            this.txt_lexico.Size = new System.Drawing.Size(500, 183);
-            this.txt_lexico.TabIndex = 5;
-            // 
-            // txt_semantico
-            // 
-            this.txt_semantico.Location = new System.Drawing.Point(16, 25);
-            this.txt_semantico.Multiline = true;
-            this.txt_semantico.Name = "txt_semantico";
-            this.txt_semantico.Size = new System.Drawing.Size(500, 252);
-            this.txt_semantico.TabIndex = 6;
+            this.groupBox2.Text = "Análisis Sintáctico";
             // 
             // btn_limpiar_salias
             // 
             this.btn_limpiar_salias.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_limpiar_salias.Location = new System.Drawing.Point(950, 44);
+            this.btn_limpiar_salias.Location = new System.Drawing.Point(410, 53);
             this.btn_limpiar_salias.Name = "btn_limpiar_salias";
-            this.btn_limpiar_salias.Size = new System.Drawing.Size(123, 41);
+            this.btn_limpiar_salias.Size = new System.Drawing.Size(126, 41);
             this.btn_limpiar_salias.TabIndex = 8;
-            this.btn_limpiar_salias.Text = "Limpiar";
+            this.btn_limpiar_salias.Text = "Limpiar Salidas";
             this.btn_limpiar_salias.UseVisualStyleBackColor = true;
             this.btn_limpiar_salias.Click += new System.EventHandler(this.btn_limpiar_salias_Click);
+            // 
+            // txt_semantico
+            // 
+            this.txt_semantico.Location = new System.Drawing.Point(6, 25);
+            this.txt_semantico.Multiline = true;
+            this.txt_semantico.Name = "txt_semantico";
+            this.txt_semantico.Size = new System.Drawing.Size(500, 230);
+            this.txt_semantico.TabIndex = 0;
+            // 
+            // tb_lexico
+            // 
+            this.tb_lexico.BackgroundColor = System.Drawing.SystemColors.Window;
+            this.tb_lexico.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.tb_lexico.Location = new System.Drawing.Point(6, 27);
+            this.tb_lexico.Name = "tb_lexico";
+            this.tb_lexico.Size = new System.Drawing.Size(500, 231);
+            this.tb_lexico.TabIndex = 0;
             // 
             // VistaCompilador
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.DimGray;
-            this.ClientSize = new System.Drawing.Size(1122, 638);
+            this.BackColor = System.Drawing.Color.SteelBlue;
+            this.ClientSize = new System.Drawing.Size(1058, 641);
             this.Controls.Add(this.btn_limpiar_salias);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
@@ -178,9 +180,9 @@
             this.gbEntry.ResumeLayout(false);
             this.gbEntry.PerformLayout();
             this.groupBox1.ResumeLayout(false);
-            this.groupBox1.PerformLayout();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.tb_lexico)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -196,9 +198,8 @@
         private System.Windows.Forms.Button btn_compile;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.GroupBox groupBox2;
-        private System.Windows.Forms.TextBox txt_lexico;
-        private System.Windows.Forms.TextBox txt_semantico;
         private System.Windows.Forms.Button btn_limpiar_salias;
+        private System.Windows.Forms.DataGridView tb_lexico;
+        private System.Windows.Forms.TextBox txt_semantico;
     }
 }
-

@@ -43,14 +43,14 @@ namespace Compilador
             string input = txt_entry.Text;
 
             // Crear el analizador léxico y sintáctico
-            var grammar = new SimpleGrammar();
+            var grammar = new Gramatic();
             var parser = new Parser(grammar);
 
             // Realizar el análisis
             var parseTree = parser.Parse(input);
 
             // Mostrar los tokens léxicos
-            txt_lexico.Clear();
+            tb_lexico.Rows.Clear();
             foreach (var token in parseTree.Tokens)
             {
                 txt_lexico.AppendText($"Token: {token.Text}, Tipo: {token.Terminal.Name}\n");
@@ -74,7 +74,7 @@ namespace Compilador
 
         private void btn_limpiar_salias_Click(object sender, EventArgs e)
         {
-            txt_lexico.Clear();
+            tb_lexico.Rows.Clear();
             txt_semantico.Clear();
         }
     }
