@@ -1,6 +1,8 @@
 ﻿using System;
+using System.Drawing;
 using System.IO;
 using System.Windows.Forms;
+using Compilador.Helper;
 using Irony.Parsing;
 
 namespace Compilador
@@ -50,16 +52,17 @@ namespace Compilador
             var parseTree = parser.Parse(input);
 
             // Mostrar los tokens léxicos
-            tb_lexico.Rows.Clear();
+            txt_lexico.Clear();
             foreach (var token in parseTree.Tokens)
             {
-                txt_lexico.AppendText($"Token: {token.Text}, Tipo: {token.Terminal.Name}\n");
+                txt_lexico.AppendText($"Palabra: {token.Text}| Token: {token.Terminal.Name} | \n");
             }
 
             // Verificar si hay errores sintácticos
             if (parseTree.HasErrors())
             {
                 txt_semantico.Clear();
+                txt_semantico.ForeColor = Color.Red;
                 txt_semantico.AppendText("Errores de análisis sintáctico encontrados:\n");
                 foreach (var message in parseTree.ParserMessages)
                 {
@@ -68,14 +71,30 @@ namespace Compilador
             }
             else
             {
+                txt_semantico.ForeColor = Color.Green;
                 txt_semantico.Text = "Análisis sintáctico completado exitosamente.";
             }
         }
 
         private void btn_limpiar_salias_Click(object sender, EventArgs e)
         {
-            tb_lexico.Rows.Clear();
+            txt_lexico.Clear();
             txt_semantico.Clear();
+        }
+
+        private void btn_help_Click(object sender, EventArgs e)
+        {
+            // Crear una instancia del formulario emergente con la ruta del archivo
+            string filePath = "C:\\Users\\edrib\\OneDrive\\Documents\\Repos\\compiladorCsharp\\Compilador\\Compilador\\Helper\\Grammar.html"; // Cambia esto por la ruta de tu archivo
+            ManualForm manualForm = new ManualForm(filePath);
+
+            // Mostrar el formulario emergente
+            manualForm.ShowDialog();
+        }
+
+        private void txt_entry_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

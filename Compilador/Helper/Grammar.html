@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <title>Gramatica</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <style>
+        body {
+            font-family: Consolas, monospace;
+            margin: 20px;
+        }
+        .section {
+            margin-bottom: 20px;
+        }
+        .title {
+            font-weight: bold;
+            font-size: 1.2em;
+            margin-bottom: 10px;
+        }
+        .item {
+            margin-left: 20px;
+        }
+        table {
+            border-collapse: collapse;
+            width: 100%;
+        }
+        th, td {
+            border: 1px solid black;
+            padding: 8px;
+            text-align: left;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+    </style>
+</head>
+<body>
+    <h1 class="position-absolute bottom-50 end-50">Manual de usuario Compilador</h1>
+    <p>Este compilador es sensible a mayúsculas y minúsculas, por ende, tenga cuidado en este aspecto.</p>
+    <div class="section">
+        <h2 class="title">Tabla de Tokens</h2>
+        <table id="tablaTokens">
+            <tr>
+                <th>Entrada</th>
+                <th>Token</th>
+                <th>Terminal/No Terminal</th>
+            </tr>
+        </table>
+    </div>
+
+    <script>
+        function agregarFilaToken(entrada, token, tipo) {
+            var tabla = document.getElementById("tablaTokens");
+            var fila = tabla.insertRow(-1);
+            var celdaEntrada = fila.insertCell(0);
+            var celdaToken = fila.insertCell(1);
+            var celdaTipo = fila.insertCell(2);
+            celdaEntrada.innerHTML = entrada;
+            celdaToken.innerHTML = token;
+            celdaTipo.innerHTML = tipo;
+        }
+
+        agregarFilaToken("a-z-A-Z", "identifier", "Terminal");
+        agregarFilaToken("0-9", "number", "Terminal");
+        agregarFilaToken("--", "Comment", "Terminal");
+        agregarFilaToken("LongComment", "LongComment", "Terminal");
+        agregarFilaToken("'", "string", "Terminal");
+        agregarFilaToken("\"", "string", "Terminal");
+        agregarFilaToken("If", "If", "No terminal");
+        
+        agregarFilaToken("Chunk", "Chunk", "No terminal");
+        agregarFilaToken("Prefix", "Prefix", "No terminal");
+        agregarFilaToken("Variable", "Variable", "No terminal");
+        agregarFilaToken("FunctionCall", "FunctionCall", "No terminal");
+        agregarFilaToken("FunctionCallArguments", "FunctionCallArguments", "No terminal");
+        agregarFilaToken("OopCall", "OopCall", "No terminal");
+        agregarFilaToken("", "", "");
+        agregarFilaToken("Expression", "Expression", "No terminal");
+        agregarFilaToken("FunctionDef", "FunctionDef", "No terminal");
+        agregarFilaToken("FunctionDefArguments", "FunctionDefArguments", "No terminal");
+        agregarFilaToken("FunctionDecl", "FunctionDecl", "No terminal");
+        agregarFilaToken("ReturnStat", "ReturnStat", "No terminal");
+        agregarFilaToken("BreakStat", "BreakStat", "No terminal");
+        agregarFilaToken("Assignment", "Assignment", "No terminal");
+        agregarFilaToken("LocalAssignment", "LocalAssignment", "No terminal");
+        agregarFilaToken("DoBlock", "DoBlock", "No terminal");
+        agregarFilaToken("If", "If", "No terminal");
+        agregarFilaToken("Elseif", "Elseif", "No terminal");
+        agregarFilaToken("Else", "Else", "No terminal");
+        agregarFilaToken("While", "While", "No terminal");
+        agregarFilaToken("Repeat", "Repeat", "No terminal");
+        agregarFilaToken("For", "For", "No terminal");
+        agregarFilaToken("PowerOp", "PowerOp", "No terminal");
+        agregarFilaToken("MulOp", "MulOp", "No terminal");
+        agregarFilaToken("AddOp", "AddOp", "No terminal");
+        agregarFilaToken("ConcatOp", "ConcatOp", "No terminal");
+        agregarFilaToken("RelOp", "RelOp", "No terminal");
+        agregarFilaToken("AndOp", "AndOp", "No terminal");
+        agregarFilaToken("OrOp", "OrOp", "No terminal");
+        agregarFilaToken("UnaryExpr", "UnaryExpr", "No terminal");
+        agregarFilaToken("TableConstruct", "TableConstruct", "No terminal");
+        agregarFilaToken("TableConstructFragment", "TableConstructFragment", "No terminal");
+    </script>
+</body>
+</html>

@@ -51,6 +51,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Capas\Grammar.cs" />
+    <Compile Include="Helper\ManualForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Helper\ManualForm.Designer.cs">
+      <DependentUpon>ManualForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="VistaCompilador.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -59,6 +65,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Helper\ManualForm.resx">
+      <DependentUpon>ManualForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="VistaCompilador.resx">
       <DependentUpon>VistaCompilador.cs</DependentUpon>
     </EmbeddedResource>
@@ -84,6 +93,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Helper\Grammar.html" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
