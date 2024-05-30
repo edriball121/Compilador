@@ -85,7 +85,7 @@ namespace Compilador
         private void btn_help_Click(object sender, EventArgs e)
         {
             // Crear una instancia del formulario emergente con la ruta del archivo
-            string filePath = "C:\\Users\\edrib\\OneDrive\\Documents\\Repos\\compiladorCsharp\\Compilador\\Compilador\\Helper\\Grammar.html"; // Cambia esto por la ruta de tu archivo
+            string filePath = "C:\\Users\\edrib\\OneDrive\\Documents\\Repos\\Compilador\\Compilador\\Helper\\Grammar.html"; // Cambia esto por la ruta de tu archivo
             ManualForm manualForm = new ManualForm(filePath);
 
             // Mostrar el formulario emergente
