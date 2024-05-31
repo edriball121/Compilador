@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <title>Gramatica</title>
     <meta charset="utf-8">
@@ -10,31 +11,39 @@
             font-family: Consolas, monospace;
             margin: 20px;
         }
+
         .section {
             margin-bottom: 20px;
         }
+
         .title {
             font-weight: bold;
             font-size: 1.2em;
             margin-bottom: 10px;
         }
+
         .item {
             margin-left: 20px;
         }
+
         table {
             border-collapse: collapse;
             width: 100%;
         }
-        th, td {
+
+        th,
+        td {
             border: 1px solid black;
             padding: 8px;
             text-align: left;
         }
+
         th {
-            background-color: #f2f2f2;
+            background-color: cadetblue;
         }
     </style>
 </head>
+
 <body>
     <h1 class="position-absolute bottom-50 end-50">Manual de usuario Compilador</h1>
     <p>Este compilador es sensible a mayúsculas y minúsculas, por ende, tenga cuidado en este aspecto.</p>
@@ -46,6 +55,90 @@
                 <th>Token</th>
                 <th>Terminal/No Terminal</th>
             </tr>
+        </table>
+    </div>
+
+    <div class="section">
+        <h2 class="title">Estructuras</h2>
+        <table>
+            <tr>
+                <th>Estructura de comentario de linea</th>
+            </tr>
+            <tr>
+                <td>--Aqui puedes escribir tu comentario.</td>
+            </tr>
+
+            <tr>
+                <th>Estructura de comentario multiplelina</th>
+            </tr>
+            <tr>
+                <td>--[[Este es un comentario largo Puede abarcar múltiples líneas Se utiliza para proporcionar descripciones detalladas o para comentar bloques grandes de código]]</td>
+            </tr>
+
+            <tr>
+                <th>Estructura de declaración de variables</th>
+            </tr>
+            <tr>
+                <td>local x = 10<br>
+                    local y = "hello"<br>
+                    local z = x + 5</td>
+            </tr>
+
+            <tr>
+                <th>Estructura de una funcion con parametros</th>
+            </tr>
+            <tr>
+                <td>function sum(a, b)<br> 
+                    return a + b<br>
+                    end</td>
+            </tr>
+
+            <tr>
+                <th>Estructura de una funcion sin parametros</th>
+            </tr>
+            <tr>
+                <td>function FuncionSuma()<br>
+                    local a=0<br>
+                    local b=0<br>
+                      local result = a + b<br>
+                      return result<br>
+                    end</td>
+            </tr>
+
+            <tr>
+                <th>Estructura de control IF</th>
+            </tr>
+            <tr>
+                <td>local x = 10<br>
+                    if x > 5 then<br>
+                      print("x is greater than 5")<br>
+                    elseif x == 5 then<br>
+                      print("x is equal to 5")<br>
+                    else<br>
+                      print("x is less than 5")<br>
+                    end</td>
+            </tr>
+
+            <tr>
+                <th>Estructura de control WHILE</th>
+            </tr>
+            <tr>
+                <td>local x = 1<br>
+                    while x <= 5 do<br>
+                      print(x)<br>
+                      x = x + 1<br>
+                    end</td>
+            </tr>
+
+            <tr>
+                <th>Estructura de control FOR</th>
+            </tr>
+            <tr>
+                <td>for i = 1, 10 do<br>
+                    print(i)<br>
+                  end</td>
+            </tr>
+
         </table>
     </div>
 
@@ -68,7 +161,7 @@
         agregarFilaToken("'", "string", "Terminal");
         agregarFilaToken("\"", "string", "Terminal");
         agregarFilaToken("If", "If", "No terminal");
-        
+
         agregarFilaToken("Chunk", "Chunk", "No terminal");
         agregarFilaToken("Prefix", "Prefix", "No terminal");
         agregarFilaToken("Variable", "Variable", "No terminal");
@@ -103,4 +196,5 @@
         agregarFilaToken("TableConstructFragment", "TableConstructFragment", "No terminal");
     </script>
 </body>
+
 </html>
